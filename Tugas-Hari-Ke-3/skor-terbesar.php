@@ -2,18 +2,23 @@
 function skor_terbesar($arr){
 //kode di sini
   $nilai = array_column($arr, "nilai");
-  // $kelas = array_column($arr, "kelas");
-  array_multisort($nilai, SORT_ASC);
+  array_multisort($nilai, SORT_ASC, $arr);
   foreach($arr as $key => $value){
-    $arrBaru[$value["kelas"]] = [
-      "nama" => $value["nama"],
-      "kelas" => $value["kelas"],
-      "nilai" => $value["nilai"]
-    ];
+    $arrBaru[$value["kelas"]] = $value;
+  }
+  foreach($arrBaru as $k => $val){
+    if($val["kelas"]=="Laravel"){
+      $arrNew["Laravel"] = $val;
+    }elseif($val["kelas"]=="React Native"){
+      $arrNew["React Native"] = $val;
+    }elseif($val["kelas"]=="React JS"){
+      $arrNew["React JS"] = $val;
+    }
   }
 
-  // ksort($arrBaru);
-  return $arrBaru;
+  ksort($arrNew);
+  return $arrNew;
+    
 }
 
 // TEST CASES
