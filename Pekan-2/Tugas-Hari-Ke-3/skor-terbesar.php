@@ -6,7 +6,7 @@ function skor_terbesar($arr){
   foreach($arr as $key => $value){
     $arrBaru[$value["kelas"]] = $value;
   }
-  foreach($arrBaru as $k => $val){
+  /*foreach($arrBaru as $k => $val){
     if($val["kelas"]=="Laravel"){
       $arrNew["Laravel"] = $val;
     }elseif($val["kelas"]=="React Native"){
@@ -14,10 +14,10 @@ function skor_terbesar($arr){
     }elseif($val["kelas"]=="React JS"){
       $arrNew["React JS"] = $val;
     }
-  }
+  }*/
 
-  ksort($arrNew);
-  return $arrNew;
+  ksort($arrBaru);
+  return $arrBaru;
     
 }
 
